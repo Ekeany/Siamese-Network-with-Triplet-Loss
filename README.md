@@ -6,5 +6,7 @@ This project contains two sections.
 
 * The second part uses a pre trained network, more specficaly a fine tuned version of the VGG16 convolutional network trained on facial images to produce an embeddind representation of a number of celebrity faces to produce a simple retrival system.
 
-<img align="right" width="100" height="100" src="images/image1.png">
 
+<p align="center">
+  <img width="460" height="300" src="images/image1.png">
+</p>
