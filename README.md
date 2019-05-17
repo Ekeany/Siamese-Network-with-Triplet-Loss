@@ -81,4 +81,22 @@ The image below demonstrates the improved accuracy between the standard VGG16 mo
   <img width="700" height="316" src="images/image12.PNG">
 </p>
 
+In order to create a retrieval model the nearest neighbor’s algorithm from the Sckit learn package was implemented. This is an unsupervised algorithm that uses the Euclidian distance between the images embedding vectors. The images with the shortest distance are deemed to have a higher similarity score than those further away. By fitting the model to the training data a new image can be converted to an embedding and it’s nearest neighbors calculated. When using the VGG face net model the accuracy for retrieval was 100% as long as the number of similar images was less than the actual size of the celebrity cluster in question. The visualization below displays the position of each image in their relative positions in embedding space. This graph was created by applying TSNE dimensionality reduction and then normalizing each vector to a scale between 0 and 1.
+
+<p align="center">
+  <img width="790" height="753" src="images/image13.png">
+</p>
+
+## Conclusion.
+
+The accuracy of the model in part one could have been improved by using a more complex embedding model such as the VGG16 model instead of the simple three layered convolutional neural network. Also as only as small sample of non-digit images were used in the classification task of part 4 the methodology of using the Gini Coefficient to measure the inequality of the softmax probability distribution might not be a realistic solution. The margin value seems to be somewhat ambiguous and would vary from problem to problem. However as long as your margin is large enough to exclude the trivial solution then any value is acceptable.  Also the power off fine tuning can be seen in the comparison of the VGG16 model used in part two despite both networks sharing the same origin By fine tuning the model on facial images produced a significant increase in performance in that domain.
+
+## References.
+
+1.	https://nuigalway.blackboard.com/bbcswebdav/pid-1685985-dt-content-rid-12654222_1/courses/1819-CT5107/slides_week09.pdf
+2.	https://sefiks.com/2018/08/06/deep-face-recognition-with-keras/
+3.	https://www.kaggle.com/dansbecker/5-celebrity-faces-dataset
+
+Figure (1): These plot display the MNIST embedding space as a function of alpha. Whose values range from 0-0.9 in increments of 0.1 starting from left to right.
+
 
