@@ -97,6 +97,20 @@ The accuracy of the model in part one could have been improved by using a more c
 2.	https://sefiks.com/2018/08/06/deep-face-recognition-with-keras/
 3.	https://www.kaggle.com/dansbecker/5-celebrity-faces-dataset
 
+
+
 Figure (1): These plot display the MNIST embedding space as a function of alpha. Whose values range from 0-0.9 in increments of 0.1 starting from left to right.
+
+<p align="center">
+  <img width="692" height="802" src="images/image14.PNG">
+</p>
+
+<p align="center">
+  <img width="611" height="588" src="images/image15.PNG">
+</p>
+
+<p align="center">
+  <img width="665" height="503" src="images/image16.PNG">
+</p>
 
 
