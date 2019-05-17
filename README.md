@@ -41,3 +41,44 @@ To overcome the first problem; and output a single embedding for a single image,
 </p>
 
 A clustering algorithm would be able to split the image into 9 clusters however it would be unable to distinguish the label of a point as it is an unsupervised learning technique. Thus to compute the label of each embedding a simple classifier was created that accepted an embedding vector and translated this to a one hot encoded label. As the embedding vectors have already encompassed the class of each image the model was extremely simple containing just an Input and a softmax output layer. After training the model with the target one hot encoded vectors an accuracy level of 88% was achieved.
+
+<p align="center">
+  <img width="964" height="56" src="images/image6.png">
+</p>
+
+It was observed that when passing a non-digit image through the classification algorithm that the distribution of the softmax probabilities were essentially confined to a single array element. Whereas, when presented with an actual MNIST image the probability distribution was more naturally spread between elements.
+
+<p align="center">
+  <img width="570" height="53" src="images/image7.png">
+</p>
+<p align="center">
+  <img width="519" height="55" src="images/image8.png">
+</p>
+
+To exploit this, a function that computes the Gini coefficient of an array was created. The Gini coefficient is a statistical measure of a distribution that is usually used in economics to compute economic inequality. This value was computed for both the digit and non-digit images, and a threshold was then manually set. Thus any array with a Gini coefficient above 0.87 was classified as a non-digit image. This approach correctly classified the MNIST classes with 84% accuracy and was 99% successful in discerning a digit from the hand drawn letter images provided.
+
+<p align="center">
+  <img width="354" height="196" src="images/image9.png">
+</p>
+
+## Part Two.
+
+In part two, the pre-trained weights from the VGG Face description model were used to create a vector representation of a number of chosen facial images. This model was developed by academics at oxford university that fined tuned the standard VGG architecture (16 convolutional layers with max pooling and dropout ;) by feeding the model dedicated training-set images for face recognition. The image set used within this report contained 71 images of 5 celebrities the distribution of which is defined below.
+
+<p align="center">
+  <img width="502" height="359" src="images/image10.png">
+</p>
+
+The original images were preprocessed using Haar cascade image object detection. To extract just the face of the celebrity from each image. These new cropped images where then saved to a directory for later use. Each filtered image was then passed through the pre-trained model with the final layer removed to produce an embedding. Using the TSNE dimensionality reduction method provided by Scikit learn package these embedding were then converted into two dimensions and visualized.
+
+<p align="center">
+  <img width="459" height="202" src="images/image11.png">
+</p>
+
+The image below demonstrates the improved accuracy between the standard VGG16 model trained on the ImageNet dataset and the fine-tuned VGG face net model. The image on the right hand side contains clearly defined clusters in the embedding space for each celebrity. In comparison the standard model does capture some information such as Elton John and Madonna however the clusters are much less defined. 
+
+<p align="center">
+  <img width="700" height="316" src="images/image12.PNG">
+</p>
+
+
